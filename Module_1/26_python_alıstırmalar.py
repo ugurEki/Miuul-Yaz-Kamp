@@ -133,6 +133,8 @@ for index, student in enumerate(ogrenciler):
     else:
         print("Tıp Fakültesi {} . öğrenci: {}".format(index, student))
 
+print(["Mühendislik Fakültesi {} . öğrenci: {}".format(index, student) if index < 3 else "Tıp Fakültesi {} . öğrenci: {}".format(index, student)for (index, student) in enumerate(ogrenciler)])
+
 ## Görev 7:
 ders_kodu = ["CMP1005", "PSY1001", "HUK1005", "SEN2204"]
 
