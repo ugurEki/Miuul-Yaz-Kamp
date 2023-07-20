@@ -27,7 +27,6 @@ def cat_summary(dataframe, col_name, plot = False):
     print("###########################")
     if  dataframe[col_name].dtype == 'bool':
             dataframe[col_name] = dataframe[col_name].astype("int")
-            print(dataframe[col_name].dtype)
     if plot :
             sns.countplot(x = dataframe[col_name], data=dataframe)
             plt.show()
