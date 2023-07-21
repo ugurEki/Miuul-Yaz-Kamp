@@ -32,5 +32,4 @@ def check_df(dataframe, head = 5):
 
 print(check_df(df))
 
-sns.countplot(x = df["adult_male"].astype("category"), data=df)
-plt.show()
+
