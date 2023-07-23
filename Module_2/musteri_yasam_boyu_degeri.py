@@ -28,11 +28,11 @@ print(musteriler.groupby(["COUNTRY", "SOURCE"])["PRICE"].agg({"mean"}))
 
 #### Görev 2: 
 
-print(musteriler.groupby(["COUNTRY", "SOURCE", "SEX", "AGE"])["PRICE"].agg({"mean"}))
+print(musteriler.groupby(["COUNTRY", "SOURCE", "SEX", "AGE"]).agg({"PRICE": "mean"}))
 
 ##### Görev 3: 
 
-agg_df = musteriler.groupby(["COUNTRY", "SOURCE", "SEX", "AGE"])["PRICE"].agg({"mean"}).sort_values(by = "mean", ascending = False)
+agg_df = musteriler.groupby(["COUNTRY", "SOURCE", "SEX", "AGE"]).agg({"PRICE": "mean"}).sort_values("PRICE", ascending = False)
 
 ##### Görev 4: 
 agg_df = agg_df.reset_index()
@@ -49,8 +49,6 @@ agg_df["Age_cat"] = pd.cut(agg_df["AGE"], bins=yas_araliklari, labels=etiketler)
 print(agg_df.head())
 
 ##### Görev 6:
-
-cols = ["COUNTRY", "SOURCE", "SEX", "Age_cat"]
 
 def concatenate_values(row):
     return f"{row['COUNTRY']}_{row['SOURCE']}_{row['SEX']}_{row['Age_cat']}"
@@ -70,10 +68,10 @@ print(agg_df.head())
 
 #### Görev 7: 
 
-agg_df["SEGMENT"] = pd.qcut(agg_df["mean"], 4, labels=["first", "second", "third","forth"])
+agg_df["SEGMENT"] = pd.qcut(agg_df["PRICE"], 4, labels=["first", "second", "third","forth"])
 
 
-print(agg_df.groupby("SEGMENT")["mean"].agg({"mean", "max", "sum"}))
+print(agg_df.groupby("SEGMENT")["PRICE"].agg({"mean", "max", "sum"}))
 
 #### Görev 8 :
 
